@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>다데기 - 데잇걸즈 데이터 분석기</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/analysis.css" rel="stylesheet">
+
+    <style>
+        svg {
+        }
+        #bubble {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 100px;
+          margin-bottom: 120px;
+        }
+        #bubble1 {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 120px;
+        }
+        #chart {
+         width: 400px;
+         height: 400px;
+         background-color : #EEE;
+         margin:0 auto;
+         overflow: hidden;
+        }
+        #chart1 {
+         width: 400px;
+         height: 400px;
+         background-color : #EEE;
+         margin:0 auto;
+         overflow: hidden;
+        }
+      </style>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+
+  <body id="page-top" style = "background-color: #ffe1dd;">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html">다데기 \(♥♥)/</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="./index.html">PROJECT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="./analysis.html">ANALYSIS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="./team.html">TEAM</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead text-center d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h2 class="text-uppercase">
+              <span class="text-primary"><strong>데잇걸즈 2기 데이터 분석</strong></span>
+            </h2>
+            <hr style="color: #003792;">
+            <div style="display: inline-block; margin-top:10px;">
+            <div class="detail-box" style="margin: 25px; color: #fff;">
+              슬랙 분석 인원 <br/> <strong>43</strong>명 <br />
+            </div>
+            <div class="detail-box" style="margin: 25px; color: #fff;">
+              분석한 슬랙 채널 수 <br /><strong>10</strong>개
+            </div>
+            <div class="detail-box" style="margin: 25px; color: #fff;">
+              총 슬랙 글 수<br /><strong>3,829</strong>개
+            </div>
+            <div class="detail-box" style="margin: 25px; color: #fff;">
+              총 슬랙 댓글 수 <br /><strong>3,060</strong>개
+            </div>
+            <div class="detail-box" style="margin: 25px; color: #fff;">
+              총 슬랙 이모지 수 <br /><strong>16,925</strong>개
+            </div>
+            <div class="detail-box" style="margin: 25px; color: #fff;">
+              분석 대상 기간 <br /><strong>2018.6.28. ~ 2018.9.28.</strong>
+            </div>
+          </div>
+          <div style="padding-top: 30px;">
+              <a class="btn btn-light btn-xl js-scroll-trigger" href="#communication" style="margin: 20px">#Communication</a>
+              <a class="btn btn-light btn-xl js-scroll-trigger" href="#learning" style="margin: 20px">#Learning</a>
+              <a class="btn btn-light btn-xl js-scroll-trigger" href="#fun" style="margin: 20px">#Fun</a>
+          </div>
+         </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-white" id="communication">
+         <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                  <h6>#COMMUNICATION</h6>
+                  <h2 class="section-heading"><strong>TOP 10 Emojis</strong></h2>
+                  <h5>데잇걸즈의 TOP10 이모지</h5>
+                  <hr class="my-4">
+                </div>
+              </div>
+          </div>
+          <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
+            <p>슬랙은 이모지를 통해 텍스트에 반응을 보일 수 있는 Add Reaction 기능을 제공합니다.
+              이모지는 데잇걸즈 내에서 감정 표현을 통해 응답을 보내는 가장 주요한 매체입니다.
+              데잇걸즈 슬랙에서 3개월간 가장 많이 사용된 이모지 10개를 추출하여,
+              서로간에 어떤 감정을 가장 많이 주고받았는지 상징적으로 알아봅니다.</p>
+          </div>
+          <div class="emoji-array-1 center container" style="margin-top: 100px;">
+             <div id="thumbsup" style="margin-right: 40px; margin-left: 60px;">
+                <img src="img/emoji/thumbsup.png" style="width: 100%">
+                <p color="blue" style="margin-top: 30px; margin-bottom: 5px;">1위<br />thumbs up</p>
+                <p color="blue" style="font-weight: bolder;">3,945</p>
+              </div>
+              <div id="blue_heart" style="margin-right: 40px; margin-left: 40px;">
+                <img src="img/emoji/blue_heart.png" style="width: 100%">
+                <p color="blue" style="margin-top: 30px; margin-bottom: 5px;">2위<br />blue heart</p>
+                <p color="blue" style="font-weight: bolder;">1,130</p>
+              </div>
+              <div id="thumbsup_all" style="margin-right: 40px; margin-left: 40px;">
+                <img src="img/emoji/thumbsup_all.gif" style="width: 100%">
+                <p color="blue" style="margin-top: 30px; margin-bottom: 5px;">3위<br />thumbs up all</p>
+                <p color="blue" style="font-weight: bolder;">638</p>
+              </div>
+              <div id="heart_eyes" style="margin-right: 40px; margin-left: 40px;">
+                <img src="img/emoji/heart_eyes.png" style="width: 100%">
+                <p color="blue" style="margin-top: 30px; margin-bottom: 5px;">4위<br />heart eyes</p>
+                <p color="blue" style="font-weight: bolder;">538</p>
+              </div>
+              <div id="heart" style="margin-right: 40px; margin-left: 40px;">
+                <img src="img/emoji/heart.png" style="width: 100%">
+                <p color="blue" style="margin-top: 30px; margin-bottom: 5px;">5위<br />heart</p>
+                <p color="blue" style="font-weight: bolder;">364</p>
+              </div>
+         </div>
+         <div class="emoji-array-2 container" style="margin-top: 70px;">
+              <div id="hahahaha" style="margin-right: 40px; margin-left: 60px;">
+                <img src="img/emoji/clapping.png" style="width: 100%">
+                <p color="blue" style="margin-top: 30px; margin-bottom: 5px;">6위<br />clapping</p>
+                <p color="blue" style="font-weight: bolder;">330</p>
+              </div>
+              <div id="clapping" style="margin-right: 40px; margin-left: 40px;">
+                <img src="img/emoji/hahahaha.png" style="width: 100%" >
+                <p color="blue" style="margin-top: 30px; margin-bottom: 5px;">7위<br />hahahaha</p>
+                <p color="blue" style="font-weight: bolder;">314</p>
+              </div>
+              <div id="one_hundred" style="margin-right: 40px; margin-left: 40px;">
+                <img src="img/emoji/laughing.png" style="width: 100%">
+                <p color="blue" style="margin-top: 30px; margin-bottom: 5px;">8위<br />laughing</p>
+                <p color="blue" style="font-weight: bolder;">282</p>
+              </div>
+              <div id="laughing" style="margin-right: 40px; margin-left: 40px;">
+                <img src="img/emoji/i_love_you_hand_sign.png" style="width: 100%">
+                <p color="blue" style="margin-top: 30px; margin-bottom: 5px;">9위<br />handsign</p>
+                <p color="blue" style="font-weight: bolder;">278</p>
+              </div>
+              <div id="i_love_you_hand_sign" style="margin-right: 40px; margin-left: 40px;">
+                <img src="img/emoji/one_hundred.png" style="width: 100%">
+                <p color="blue" style="margin-top: 30px; margin-bottom: 5px;">10위<br />one hundred</p>
+                <p color="blue" style="font-weight: bolder;">258</p>
+              </div>
+          </div>
+     </section>
+
+     <!-- 월별 가장 인기있었던 TOP 10-->
+    <section class="bg-white" id="emoji-monthly">
+       <div class="container">
+         <div class="row">
+            <div class="col-lg-12 text-center">
+              <h6>#COMMUNICATION</h6>
+              <h2 class="section-heading"><strong>Monthly Top Emojis</strong></h2>
+              <h5>월별 가장 인기있었던 TOP 10 이모지</h5>
+              <hr class="my-4">
+            </div>
+            <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
+              <p>6월 말에서 9월 말까지 마일스톤과 중간 프로젝트,
+                그리고 최종 프로젝트를 준비하며 우리는 참 많은 감정 변화를 겪었습니다.
+                월별로 등장한 이모지 빈도 분석을 통해 기간별로 데잇걸즈 구성원들의 주된 감정 변화를 알아봅니다.</p>
+            </div>
+        </div>
+      </div>
+      <!--버블차트 -->
+      <div id="bubble-chart" style="margin-top: 100px;">
+        <svg id="bubble">
+          /*June*/
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/hugging_face.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/star_struck.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/one_hundred.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/grinning.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/laughing.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/slightly_smiling_face.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/clapping.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/blue_heart.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/thumbsup.png"></image>
+                /*July*/
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/ddongule2.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/grinning.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/slightly_smiling_face.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/clapping.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/i_love_you_hand_sign.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/one_hundred.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart_eyes.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/blue_heart.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/thumbsup.png"></image>
+                /*Aug*/
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/ddongule2.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/dait_happy.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/hero.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/rolling.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart_eyes.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/hahahaha.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/blue_heart.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/thumbsup_all.gif"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/thumbsup.png"></image>
+                /*Sep*/
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/laughing.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/rolling.png"></image>
+                <image x="0" y="0" height="25" width="25"
+                xlink:href="./img/emoji/sob.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/scream.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/hahahaha.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart_eyes.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/clapping.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/blue_heart.png"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/thumbsup_all.gif"></image>
+                <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/thumbsup.png"></image>
+             </svg>
+             <!-- d3 버블차트 js -->
+             <script>
+              let WIDTH = 1000;
+              let HEIGHT = 600;
+              var MARGINS = {T: 30, L: 50, R: 10, B: 30}
+              var T = 30;
+              var L = 50;
+              var R = 10;
+              var B = 300;
+
+              var bubble = [
+               {"month": 10, "count": 5},
+               {"month": 12, "count": 6},
+               {"month": 15, "count": 12},
+               {"month": 20, "count": 16},
+               {"month": 25, "count": 16},
+               {"month": 30, "count": 18},
+               {"month": 33, "count": 18},
+               {"month": 35, "count": 19},
+               {"month": 40, "count": 23},
+               {"month": 40, "count": 146},
+
+               {"month": 50, "count": 108},
+               {"month": 55, "count": 109},
+               {"month": 60, "count": 110},
+               {"month": 65, "count": 121},
+               {"month": 70, "count": 132},
+               {"month": 73, "count": 144},
+               {"month": 77, "count": 153},
+               {"month": 80, "count": 231},
+               {"month": 80, "count": 566},
+               {"month": 80, "count": 1872},
+
+               {"month": 90, "count": 145},
+               {"month": 95, "count": 158},
+               {"month": 100, "count": 164},
+               {"month": 105, "count": 169},
+               {"month": 110, "count": 196},
+               {"month": 110, "count": 264},
+               {"month": 115, "count": 279},
+               {"month": 115, "count": 476},
+               {"month": 120, "count": 509},
+               {"month": 120, "count": 1601},
+
+               {"month": 127, "count": 72},
+               {"month": 130, "count": 74},
+               {"month": 135, "count": 77},
+               {"month": 140, "count": 101},
+               {"month": 145, "count": 102},
+               {"month": 150, "count": 113},
+               {"month": 155, "count": 121},
+               {"month": 155, "count": 305},
+               {"month": 160, "count": 526},
+               {"month": 160, "count": 802}
+             ];
+
+             var x = d3.scaleLinear()
+                   .domain([0, 160])
+                   .range([0, WIDTH - MARGINS.L - MARGINS.R])
+
+             var y = d3.scaleLinear()
+                   .domain([0, 2000])
+                   .range([HEIGHT - MARGINS.B - MARGINS.T, 0]);
+
+             // x Axis, y Axis
+             var xAxis = d3.axisBottom()
+                 .scale(x)
+                 .ticks(5);
+
+             var yAxis = d3.axisLeft()
+                 .scale(y)
+                 .ticks(5);
+
+            var MONTHS = ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+
+            var monthScale = d3.scalePoint()
+              .rangeRound([0, WIDTH - MARGINS.L - MARGINS.R - 20])
+              // .paddingInner(0)
+              // .paddingOuter(0)
+              .domain(MONTHS)
+
+            var xmonthAxis = d3.axisBottom()
+              .scale(monthScale)
+              // .ticks(4)
+
+            var grids = d3.select('#bubble')
+                            .append('g')
+                            .attr("transform", "translate(" + MARGINS.L + "," + MARGINS.T + ")")
+                            .selectAll("grids")
+                              .data(MONTHS)
+                              .enter()
+                              .append('rect')
+                              .attr('height', HEIGHT-MARGINS.B-MARGINS.T)
+                              .attr('width', 0.5)
+                              .attr('x', function(d, i) {
+                                  return monthScale(d)
+                              })
+                              .attr('y', 0)
+                              .style('opacity', '0.3')
+
+             d3.select("#bubble")
+               .attr('width', WIDTH)
+               .attr('height', HEIGHT)
+                .append("g")
+                .attr("transform", "translate("+ MARGINS.L +"," +  (HEIGHT - MARGINS.B) + ")")
+                .call(xmonthAxis)
+                //.call(xAxis);
+
+            d3.select("#bubble")
+               .append("g")
+               .attr("transform", "translate(" + MARGINS.L + "," + MARGINS.B + ")")
+               .call(yAxis);
+
+             d3.select('#bubble')
+             .selectAll("image")
+             .data(bubble)
+             .transition()
+             .duration(3000)
+             .ease(d3.easeElastic)
+             .attr("x", function(d) {return x(d["month"]) + 10;})
+             .attr("y", function(d) {return y(d["count"]);})
+             </script>
+           </div>
+            <!-- d3 디폴트 이모지 뺀 버블차트 -->
+            <div id="bubble-chart" style="margin-top: 100px;">
+              <svg id="bubble1">
+               /*June*/
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/hugging_face.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/star_struck.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/one_hundred.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/grinning.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/laughing.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/slightly_smiling_face.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/clapping.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/blue_heart.png"></image>
+               /*July*/
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/ddongule2.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/grinning.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/slightly_smiling_face.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/clapping.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/i_love_you_hand_sign.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/one_hundred.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart_eyes.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/blue_heart.png"></image>
+               /*Aug*/
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/ddongule2.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/dait_happy.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/hero.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/rolling.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart_eyes.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/hahahaha.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/blue_heart.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/thumbsup_all.gif"></image>
+               /*Sep*/
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/laughing.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/rolling.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/sob.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/scream.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/hahahaha.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/heart_eyes.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/clapping.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/blue_heart.png"></image>
+               <image x="0" y="0" height="25" width="25" xlink:href="./img/emoji/thumbsup_all.gif"></image>
+             </svg>
+              <!--d3 디폴트 이모지 뺀 버블차트 js-->
+              <script>
+               var MARGINS = {T: 30, L: 50, R: 10, B: 30}
+               var T = 30;
+               var L = 50;
+               var R = 10;
+               var B = 300;
+
+               var bubble1 = [
+                {"month": 10, "count": 5},
+                {"month": 12, "count": 6},
+                {"month": 15, "count": 12},
+                {"month": 20, "count": 16},
+                {"month": 25, "count": 16},
+                {"month": 30, "count": 18},
+                {"month": 33, "count": 18},
+                {"month": 35, "count": 19},
+                {"month": 40, "count": 23},
+
+                {"month": 50, "count": 108},
+                {"month": 55, "count": 109},
+                {"month": 60, "count": 110},
+                {"month": 65, "count": 121},
+                {"month": 70, "count": 132},
+                {"month": 73, "count": 144},
+                {"month": 77, "count": 153},
+                {"month": 80, "count": 231},
+                {"month": 80, "count": 566},
+
+                {"month": 90, "count": 145},
+                {"month": 95, "count": 158},
+                {"month": 100, "count": 164},
+                {"month": 105, "count": 169},
+                {"month": 110, "count": 196},
+                {"month": 110, "count": 264},
+                {"month": 115, "count": 279},
+                {"month": 115, "count": 476},
+                {"month": 120, "count": 509},
+
+                {"month": 127, "count": 72},
+                {"month": 130, "count": 74},
+                {"month": 135, "count": 77},
+                {"month": 140, "count": 101},
+                {"month": 145, "count": 102},
+                {"month": 150, "count": 113},
+                {"month": 155, "count": 121},
+                {"month": 155, "count": 305},
+                {"month": 160, "count": 526},
+              ];
+
+              var x = d3.scaleLinear()
+                    .domain([0, 160])
+                    .range([0, WIDTH - MARGINS.L - MARGINS.R])
+
+              var y = d3.scaleLinear()
+                    .domain([0, 600])
+                    .range([HEIGHT - MARGINS.B - MARGINS.T, 0]);
+
+              // x Axis, y Axis
+              var xAxis = d3.axisBottom()
+                  .scale(x)
+                  .ticks(5);
+
+              var yAxis = d3.axisLeft()
+                  .scale(y)
+                  .ticks(5);
+
+             var MONTHS = ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+
+             var monthScale = d3.scalePoint()
+               .rangeRound([0, WIDTH - MARGINS.L - MARGINS.R - 20])
+               // .paddingInner(0)
+               // .paddingOuter(0)
+               .domain(MONTHS)
+
+
+             var xmonthAxis = d3.axisBottom()
+               .scale(monthScale)
+               // .ticks(4)
+
+             var grids = d3.select('#bubble1')
+                             .append('g')
+                             .attr("transform", "translate(" + MARGINS.L + "," + MARGINS.T + ")")
+                             .selectAll("grids")
+                               .data(MONTHS)
+                               .enter()
+                               .append('rect')
+                               .attr('height', HEIGHT-MARGINS.B-MARGINS.T)
+                               .attr('width', 0.5)
+                               .attr('x', function(d, i) {
+                                   return monthScale(d)
+                               })
+                               .attr('y', 0)
+                               .style('opacity', '0.3')
+
+              d3.select("#bubble1")
+                .attr('width', WIDTH)
+                .attr('height', HEIGHT)
+                 .append("g")
+                 .attr("transform", "translate("+ MARGINS.L +"," +  (HEIGHT - MARGINS.B) + ")")
+                 .call(xmonthAxis)
+                 //.call(xAxis);
+
+             d3.select("#bubble1")
+                .append("g")
+                .attr("transform", "translate(" + MARGINS.L + "," + MARGINS.B + ")")
+                .call(yAxis);
+
+              d3.select('#bubble1')
+              .selectAll("image")
+              .data(bubble1)
+              .transition()
+              .duration(3000)
+              .ease(d3.easeElastic)
+              .attr("x", function(d) {return x(d["month"]) + 10;})
+              .attr("y", function(d) {return y(d["count"]);})
+              </script>
+             </div>
+           </div>
+      </section>
+
+
+
+    <section class="bg-white" id="emoji-give&take">
+      <div class="container">
+         <div class="row">
+             <div class="col-lg-12 text-center">
+               <h6>#COMMUNICATION</h6>
+               <h2 class="section-heading"><strong>Emoji Collector &</strong></h2>
+               <h5>가장 많이 준 사람 & 가장 많이 받은 사람</h5>
+               <hr class="my-4">
+             </div>
+             <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
+               <p>사람들에게 가장 많은 이모지를 준 데잇걸즈 구성원은 누구일까요?
+                <br>그리고 사람들에게 가장 많은 이모지를 준 데잇걸즈 구성원은 누구일까요?
+               </p>
+             </div>
+           </div>
+         </div>
+
+         <div class="chart-wrapper">
+            <div id="chart">
+              <svg></svg>
+              <script>
+                var T = 30;
+                var L = 70;
+                var R = 20;
+                var B = 40;
+                var scores = [533, 550, 555, 601, 693, 791, 878, 1056, 1255, 2188];
+                var chart = document.querySelector("#chart");
+                var x = d3.scaleLinear()
+                          .domain([0, 2200]);
+                var y = d3.scaleBand()
+                          .domain(d3.range(scores.length)).padding(0.2);
+                var svg = d3.select("#chart svg");
+                var gData = svg.append("g")
+                          .attr("class", "data");
+                var gxAxis = svg.append("g")
+                          .attr("class", "x-axis axis");
+                var gyAxis = svg.append("g")
+                          .attr("class", "y-axis axis");
+
+                window.addEventListener("resize", onResize);
+                onResize();
+                function onResize() {
+                    x.range([0, chart.clientWidth - L - R]);
+                    y.range([chart.clientHeight - T - B, 1]);
+                    var update = gData
+                        .attr("transform", "translate(" + L + ", " + T + ")")
+                        .selectAll("rect").data(scores);
+                    var enter = update.enter()
+                        .append("rect");
+
+                    update.merge(enter)
+                        .attr("height", y.bandwidth())
+                        .attr("width", function(d) {
+                            return chart.clientWidth - L - R - (chart.clientWidth - L - R - x(d));
+                        })
+                        .attr("x", 0)
+                        .attr("y", function(d, i) {
+                            return y(i);
+                        });
+                    gxAxis
+                        .attr("transform", "translate(" + L + ", " + (chart.clientHeight - B) + ")")
+                        .call(d3.axisBottom().scale(x));
+                    gyAxis
+                        .attr("transform", "translate(" + L + ", " + T + ")")
+                        .call(d3.axisLeft().scale(y));
+                    svg
+                        .attr("width", chart.clientWidth)
+                        .attr("height", chart.clientHeight);
+                   }
+                </script>
+              </div>
+            <div id="chart1">
+              <svg></svg>
+              <script>
+                var T = 30;
+                var L = 70;
+                var R = 20;
+                var B = 40;
+                var scores = [533, 550, 555, 601, 693, 791, 878, 1056, 1255, 2188];
+                var chart = document.querySelector("#chart1");
+                var x = d3.scaleLinear()
+                          .domain([0, 2200]);
+                var y = d3.scaleBand()
+                          .domain(d3.range(scores.length)).padding(0.2);
+                var svg = d3.select("#chart1 svg");
+                var gData = svg.append("g")
+                          .attr("class", "data");
+                var gxAxis = svg.append("g")
+                          .attr("class", "x-axis axis");
+                var gyAxis = svg.append("g")
+                          .attr("class", "y-axis axis");
+
+                window.addEventListener("resize", onResize);
+                onResize();
+                function onResize() {
+                    x.range([0, chart.clientWidth - L - R]);
+                    y.range([chart.clientHeight - T - B, 1]);
+                    var update = gData
+                        .attr("transform", "translate(" + L + ", " + T + ")")
+                        .selectAll("rect").data(scores);
+                    var enter = update.enter()
+                        .append("rect");
+
+                    update.merge(enter)
+                        .attr("height", y.bandwidth())
+                        .attr("width", function(d) {
+                            return chart.clientWidth - L - R - (chart.clientWidth - L - R - x(d));
+                        })
+                        .attr("x", 0)
+                        .attr("y", function(d, i) {
+                            return y(i);
+                        });
+                    gxAxis
+                        .attr("transform", "translate(" + L + ", " + (chart.clientHeight - B) + ")")
+                        .call(d3.axisBottom().scale(x));
+                    gyAxis
+                        .attr("transform", "translate(" + L + ", " + T + ")")
+                        .call(d3.axisLeft().scale(y));
+                    svg
+                        .attr("width", chart.clientWidth)
+                        .attr("height", chart.clientHeight);
+                   }
+                </script>
+            </div>
+          </div>
+      </section>
+
+   <section class="bg-white" id="learning">
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+              <h6>#Learning</h6>
+              <h2 class="section-heading"><strong>Channel Clock Graph</strong></h2>
+              <h5>채널별 활성화된 시간을 24시간별로 나타낸 시계 그래프</h5>
+              <hr class="my-4">
+            </div>
+            <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
+              <p>슬랙 채널 중 사생활 침해의 문제를 방지하기 위해, private 채널과 팀 프로젝트 관련 소규모 채널을 제외한 슬랙 채널 10개의 활성 시간대를 알아봅니다.
+              </p>
+              <p>모두가 자유롭게 대화에 참여하고 사적인 대화를 나누지 않는 general과 qanda 채널을 선택하여 워드클라우드를 그렸습니다. 워드클라우드는 텍스트 분석 라이브러리로 KRwordRank를 이용하여 불용어 처리 후 가장 많이 사용된 단어들을 도출하여 채널을 가장 잘 대표하는 이미지로 시각화 하였습니다.
+              </p>
+            </div>
+            <div class="graph-area">
+              <!-- 예은님자리 -->
+            </div>
+            <div style="margin-top: 70px">
+              <span class="btn-s btn-light" >
+              <a href="#" style="margin: 20px">#general</a>
+              </span>
+              <span class="btn-s btn-light" >
+              <a href="#" style="margin: 20px">#오늘뭐먹지</a>
+              </span>
+              <span class="btn-s btn-light" >
+              <a href="#" style="margin: 20px">#qanda</a>
+              </span>
+              <span class="btn-s btn-light" >
+              <a href="#" style="margin: 20px">#자소서</a>
+              </span>
+              <span class="btn-s btn-light" >
+              <a href="#" style="margin: 20px">#random</a>
+              </span>
+            </div>
+            <div style="margin-top: 70px">
+              <span class="btn-s btn-light" >
+              <a href="#" style="margin: 20px">#retrospect</a>
+              </span>
+              <span class="btn-s btn-light" >
+              <a href="#" style="margin: 20px">#실습</a>
+              </span>
+              <span class="btn-s btn-light" >
+              <a href="#" style="margin: 20px">#techskill</a>
+              </span>
+              <span class="btn-s btn-light" >
+              <a href="#" style="margin: 20px">#career</a>
+              </span>
+              <span class="btn-s btn-light" >
+              <a href="#" style="margin: 20px">#나는누구</a>
+              </span>
+            </div>
+            </div>
+          </div>
+        </div>
+   </section>
+
+   <section class="bg-white" id="line">
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+              <h6>#Learning</h6>
+              <h2 class="section-heading"><strong>Commits Comparison</strong></h2>
+              <h5>데잇걸즈 구성원의 전체 커밋과 데잇걸즈 repository 커밋의 비교 그래프</h5>
+              <hr class="my-4">
+            </div>
+            <div class="graph-area">
+              <!-- 예은님자리 -->
+            </div>
+            <div class="text-area">
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+          </div>
+        </div>
+   </section>
+
+   <section class="bg-white" id="slack-github">
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+              <h6>#Learning</h6>
+              <h2 class="section-heading"><strong>Slack vs Github Graph</strong></h2>
+              <h5>슬랙 전체와 깃헙 전체의 24시간 별 작업량을 나타낸 방사형 그래프</h5>
+              <hr class="my-4">
+            </div>
+            <div class="graph-area">
+              <!-- 예은님자리 -->
+            </div>
+            <div class="text-area">
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+          </div>
+
+        </div>
+   </section>
+
+   <section class="bg-white" id="etc">
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+              <h6>#Learning</h6>
+              <h2 class="section-heading"><strong>Keyword Wordcloud</strong></h2>
+              <h5>키워드 워드클라우드</h5>
+              <hr class="my-4">
+            </div>
+            <div class="graph-area">
+              <!-- 예은님자리 -->
+            </div>
+            <div class="text-area">
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+          </div>
+        </div>
+      <div style="flex:left">
+      <a class="btn btn-light btn-xl js-scroll-trigger text-primary"href="#top">top</a>
+    </div>
+   </section>
+
+
+   <section class="bg-white" id="fun">
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+              <h6>#Fun</h6>
+              <h2 class="section-heading"><strong>The Best Moment in Dataitgirls2</strong></h2>
+              <h5>명대사 목업 이미지(리액션 카운트 이모지+리플 top100목록에서 추출 - 허락도x, 결과물도x</h5>
+              <hr class="my-4">
+            </div>
+            <div class="graph-area"></div>
+            <div class="text-area">
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+          </div>
+        </div>
+   </section>
+
+
+    <!-- Footer -->
+    <section id="footer" class="bg-pink text-white">
+      <div class="containter text-center">
+      &copy; dataitgirls. All rights reserved.
+      </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.js"></script>
+
+    <!-- d3.js -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  </body>
+</html>
