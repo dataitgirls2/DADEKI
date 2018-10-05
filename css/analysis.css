@@ -381,17 +381,6 @@ animation-iteration-count: infinite;
     height: 650px;
     margin: 20px;
     display: inline-block;
-    border: 1px solid black;
-    padding-left: 30px;
-    margin-top: 70px;
-}
-
-.graph-area {
-    width: 650px;
-    height: 650px;
-    margin: 20px;
-    display: inline-block;
-    border: 1px solid black;
     padding-left: 30px;
     margin-top: 70px;
     position: relative;
@@ -408,17 +397,17 @@ animation-iteration-count: infinite;
   position: relative;
 }
 .detail-box {
-    border: 3px solid #fff;
-    padding: 2rem 1rem;
+    border: 2px solid #fff;
+    padding: 1rem 1rem;
     width: 250px;
-    margin: 1rem 0.5rem;
+    margin: 0.5rem 0.5rem;
     display: block;
     position: relative;
     float: left;
     text-align: center;
     border-radius: 1.5rem;
     background-color: #537fc0;
-    font-size: 0.8em;
+    font-size: 1.1em;
 }
 
 .emoji-array-1 > div {
@@ -431,4 +420,5 @@ animation-iteration-count: infinite;
 .chart-wrapper  {
   display: flex;
   justify-content: space-between;
+  margin-top: 100px;
 }
