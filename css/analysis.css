@@ -344,7 +344,7 @@ animation: shake 0.5s;
 animation-iteration-count: infinite;
 }
 
-#ex {
+#unshake {
   animation: shake 0s;
 }
 
