@@ -46,17 +46,17 @@
           margin-right: auto;
           margin-top: 120px;
         }
-        #chart {
+        #chart-give {
          width: 400px;
-         height: 400px;
-         background-color : #EEE;
+         height: 500px;
+         background-color : #fff;
          margin:0 auto;
          overflow: hidden;
         }
-        #chart1 {
+        #chart-take {
          width: 400px;
-         height: 400px;
-         background-color : #EEE;
+         height: 500px;
+         background-color : #fff;
          margin:0 auto;
          overflow: hidden;
         }
@@ -530,28 +530,32 @@
              </div>
            </div>
          </div>
-
-         <div class="chart-wrapper">
-            <div id="chart">
+          <div class="chart-wrapper">
+            <div id="chart-give">
+              <h6>가장 많이 준 사람</h6>
               <svg></svg>
               <script>
-                var T = 30;
+                var T = 20;
                 var L = 70;
                 var R = 20;
-                var B = 40;
-                var scores = [533, 550, 555, 601, 693, 791, 878, 1056, 1255, 2188];
-                var chart = document.querySelector("#chart");
+                var B = 60;
+                var scores = [479, 523, 534, 536, 581, 713, 796, 846, 1523, 1840];
+                var chart = document.querySelector("#chart-give");
                 var x = d3.scaleLinear()
                           .domain([0, 2200]);
+                var giveNames = ['영웅', '지영', '세영', '문희', '(정)지은', '망고', '지현', '소령', '배로', '애란'];
+                // var y = d3.scaleBand()
+                //           .domain(d3.range(scores.length)).padding(0.2);
                 var y = d3.scaleBand()
-                          .domain(d3.range(scores.length)).padding(0.2);
-                var svg = d3.select("#chart svg");
+                          .domain(giveNames).padding(0.2);
+                var svg = d3.select("#chart-give svg");
                 var gData = svg.append("g")
                           .attr("class", "data");
                 var gxAxis = svg.append("g")
                           .attr("class", "x-axis axis");
                 var gyAxis = svg.append("g")
-                          .attr("class", "y-axis axis");
+                          .attr("class", "y-axis axis")
+
 
                 window.addEventListener("resize", onResize);
                 onResize();
@@ -559,6 +563,7 @@
                     x.range([0, chart.clientWidth - L - R]);
                     y.range([chart.clientHeight - T - B, 1]);
                     var update = gData
+                    // var update = give></give>
                         .attr("transform", "translate(" + L + ", " + T + ")")
                         .selectAll("rect").data(scores);
                     var enter = update.enter()
@@ -566,12 +571,13 @@
 
                     update.merge(enter)
                         .attr("height", y.bandwidth())
-                        .attr("width", function(d) {
-                            return chart.clientWidth - L - R - (chart.clientWidth - L - R - x(d));
+                        .attr("width", function(d, i) {
+                            // return chart.clientWidth - L - R - (chart.clientWidth - L - R - x(d));
+                            return x(d);
                         })
                         .attr("x", 0)
                         .attr("y", function(d, i) {
-                            return y(i);
+                            return y(giveNames[i]);
                         });
                     gxAxis
                         .attr("transform", "translate(" + L + ", " + (chart.clientHeight - B) + ")")
@@ -585,26 +591,30 @@
                    }
                 </script>
               </div>
-            <div id="chart1">
+            <div id="chart-take">
+              <h6>가장 많이 받은 사람</h6>
               <svg></svg>
               <script>
-                var T = 30;
+                var T = 20;
                 var L = 70;
                 var R = 20;
-                var B = 40;
+                var B = 60;
                 var scores = [533, 550, 555, 601, 693, 791, 878, 1056, 1255, 2188];
-                var chart = document.querySelector("#chart1");
+                var chart = document.querySelector("#chart-take");
                 var x = d3.scaleLinear()
                           .domain([0, 2200]);
+
+                var takeNames = ['지영', '지윤', '채원', '영웅', '소령', '세영', '배로', '(김)진영', '은지', '애란'];
                 var y = d3.scaleBand()
-                          .domain(d3.range(scores.length)).padding(0.2);
-                var svg = d3.select("#chart1 svg");
+                          .domain(takeNames).padding(0.2);
+                var svg = d3.select("#chart-take svg");
                 var gData = svg.append("g")
                           .attr("class", "data");
                 var gxAxis = svg.append("g")
                           .attr("class", "x-axis axis");
                 var gyAxis = svg.append("g")
-                          .attr("class", "y-axis axis");
+                          .attr("class", "y-axis axis")
+
 
                 window.addEventListener("resize", onResize);
                 onResize();
@@ -619,12 +629,13 @@
 
                     update.merge(enter)
                         .attr("height", y.bandwidth())
-                        .attr("width", function(d) {
-                            return chart.clientWidth - L - R - (chart.clientWidth - L - R - x(d));
+                        .attr("width", function(d, i) {
+                            // return chart.clientWidth - L - R - (chart.clientWidth - L - R - x(d));
+                            return x(d);
                         })
                         .attr("x", 0)
                         .attr("y", function(d, i) {
-                            return y(i);
+                            return y(takeNames[i]);
                         });
                     gxAxis
                         .attr("transform", "translate(" + L + ", " + (chart.clientHeight - B) + ")")
@@ -637,9 +648,9 @@
                         .attr("height", chart.clientHeight);
                    }
                 </script>
+              </div>
             </div>
-          </div>
-      </section>
+       </section>
 
       <section class="bg-white" id="network_chart">
         <div class="container">
