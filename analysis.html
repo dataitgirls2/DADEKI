@@ -696,50 +696,74 @@
             </div>
             <div class="graph-area" id="radar_chart_channel_total">
               <!-- 예은님자리 -->
+            <!-- 자리 맡아주셔서 감사합니다^^ :예은 -->
             </div>
             <script src="./js/radar_chart.js"></script>
             <script src="./js/radar_data.js"></script>
             <script>
-              get_chart("body #radar_chart_channel_total", data_channel_whole, 600, 600, 7, 700);
+
+              window.onload = set_default_radar();
+              // document.getElementById("btn_default").addEventListener("click", purge());
+              // document.getElementById("btn_default").addEventListener("click", set_default_radar());
+
+              function set_default_radar() {
+                get_chart("body #radar_chart_channel", data_channel_whole, 600, 600, 7, 700);
+              };
+
+              function purge(){
+                var myNode = document.getElementById("radar_chart_channel");
+                while (myNode.firstChild) {
+                    myNode.removeChild(myNode.firstChild);
+                  };
+                };
+
+              function ContentChange(target_src, description) {
+                purge();
+                var myNode = document.getElementById("radar_chart_channel");
+                const desc = document.createTextNode(description);
+                myNode.appendChild(desc);
+                const image_updated = document.createElement('img');
+                image_updated.setAttribute('src', target_src);
+                image_updated.setAttribute('height', 550);
+                image_updated.setAttribute('width', 550);
+                // image_updated.setAttribute('style', 'margin-left:20px; margin-right:20px');
+                myNode.appendChild(image_updated);
+              };
             </script>
+
             <div style="margin-top: 70px">
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px">#general</a>
-              </span>
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px">#오늘뭐먹지</a>
-              </span>
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px">#qanda</a>
-              </span>
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px">#자소서</a>
-              </span>
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px">#random</a>
-              </span>
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/wordcloud_general.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+                <a style="margin: 20px">#general</a>
+              </button>
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/wordcloud_whattoeat.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')">
+                <a style="margin: 20px">#오늘뭐먹지</a>
+              </button>
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/wordcloud_qanda.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+                <a style="margin: 20px">#qanda</a>
+              </button>
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_자소서.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+                <a style="margin: 20px">#자소서</a>
+              </button>
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_random.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+                <a style="margin: 20px">#random</a>
+              </button>
             </div>
             <div style="margin-top: 70px">
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px">#retrospect</a>
-              </span>
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px">#실습</a>
-              </span>
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px">#techskill</a>
-              </span>
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px">#career</a>
-              </span>
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px">#나는누구</a>
-              </span>
-            <div style="margin-top: 70px">
-              <span class="btn-s btn-light" >
-                <a href="#" style="margin: 20px;">전체 보기</a>
-              </span>
-            </div>
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_retrospect.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+                <a style="margin: 20px">#retrospect</a>
+              </button>
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_실습.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+                <a style="margin: 20px">#실습</a>
+              </button>
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_techskill.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+                <a style="margin: 20px">#techskill</a>
+              </button>
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_career.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+                <a style="margin: 20px">#career</a>
+              </button>
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_나는누구.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+                <a style="margin: 20px">#나는누구</a>
+              </button>
           </div>
         </div>
       </div>
