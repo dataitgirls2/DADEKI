@@ -1,0 +1,145 @@
+/* 원본 코드 출처: https://github.com/alangrafu/radar-chart-d3
+적절히 수정해서 써먹은 사람:  Eunorek
+원본 코드와 마찬가지로 Apache 2.0 라이센스를 따릅니다 */
+
+@import url('https://fonts.googleapis.com/css?family=Karla');
+.radar-chart .level {
+  stroke: #537FC0;
+  stroke-width: 1.5;
+  opacity: 0.4;
+}
+
+.radar-chart .axis line {
+  stroke: #537FC0;
+  stroke-width: 1.8;
+  opacity: 0.4;
+}
+.radar-chart .axis .legend {
+  color: #537FC0;
+  font-family: 'Karla', sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  opacity: 0.6;
+}
+.radar-chart .axis .legend.top {
+  dy:1em;
+}
+.radar-chart .axis .legend.left {
+  text-anchor: start;
+}
+.radar-chart .axis .legend.middle {
+  text-anchor: middle;
+}
+.radar-chart .axis .legend.right {
+  text-anchor: end;
+}
+
+.radar-chart .tooltip {
+  font-family: sans-serif;
+  font-size: 13px;
+  transition: opacity 200ms;
+  opacity: 1.0;
+}
+.radar-chart .tooltip.visible {
+  opacity: 1.0;
+}
+
+/* area transition when hovering */
+.radar-chart .area {
+  stroke-width: 2;
+  fill-opacity: 0.6;
+}
+.radar-chart.focus .area {
+  fill-opacity: 0.4;
+}
+
+.radar-chart .circle {
+  fill-opacity: 0.0;
+}
+
+.radar-chart.focus .area.focused {
+  fill-opacity: 1.0;
+}
+
+
+
+/* transitions */
+.radar-chart .area, .radar-chart .circle {
+  transition: opacity 300ms, fill-opacity 200ms;
+  opacity: 1;
+}
+.radar-chart .d3-enter, .radar-chart .d3-exit {
+  opacity: 0;
+}
+body {
+  padding: 20px;
+}
+
+/* REAL STUFF */
+
+/* FOR INDIVIDUAL GROUPS */
+
+/* channels */
+.area.general, .general.circle {
+  fill: #5C8AAE;
+  stroke: none;
+}
+.area.오늘뭐먹지, .오늘뭐먹지.circle {
+  fill: #FCAF29;
+  stroke: none;
+}
+.area.qanda, .qanda.circle {
+  fill: #CF00DD;
+  stroke: none;
+}
+.area.매력적인나사용제안서, .매력적인나사용제안서.circle {
+  fill: #FFD700;
+  stroke: none;
+}
+.area.random, .random.circle {
+  fill: #6CAF7F;
+  stroke: none;
+  fill-opacity: 0.7;
+}
+.area.retrospect, .retrospect.circle {
+  fill: #10732C;
+  stroke: none;
+  fill-opacity: 0.7;
+}
+.area.실습, .실습.circle {
+  fill: #FF3A00;
+  stroke: none;
+  fill-opacity: 0.7;
+}
+.area.techskill, .techskill.circle {
+  fill: #8600F5;
+  stroke: none;
+  fill-opacity: 0.7;
+}
+.area.career, .career.circle {
+  fill: #005171;
+  stroke: none;
+  fill-opacity: 0.7;
+}
+.area.나는누구, .나는누구.circle {
+  fill: #F30053;
+  stroke: none;
+  fill-opacity: 0.7;
+}
+
+/* commits by dayofweek */
+.area.요일별_평균_커밋, .요일별_평균_커밋.circle {
+  fill: #F05033;
+  stroke: none;
+  fill-opacity: 0.7;
+}
+
+/* commits vs slack messages */
+.area.commits, .commits .circle {
+  fill: #F05033;
+  stroke: none;
+}
+.area.messages, .messages .circle {
+  fill: #DA2148;
+  stroke: none;
+}
