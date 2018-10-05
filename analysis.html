@@ -26,6 +26,10 @@
     <!-- Custom styles for this template -->
     <link href="css/analysis.css" rel="stylesheet">
 
+    <!-- styles for radar and nw charts -->
+    <link rel="stylesheet" href="./css/radar_style.css"></link>
+    <link rel="stylesheet" href="./css/network_style.css"></link>
+
     <style>
         svg {
         }
@@ -679,6 +683,33 @@
           </div>
       </section>
 
+      <section class="bg-white" id="network_chart">
+        <div class="container">
+           <div class="row">
+               <div class="col-lg-12 text-center">
+                 <h6>#COMMUNICATION</h6>
+                 <h2 class="section-heading"><strong>Network Flow</strong></h2>
+                 <h5>슬랙에서의 네트워크 양상</h5>
+                 <hr class="my-4">
+               </div>
+               <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
+                 <p>슬랙에서 얼마나 교류했는지 각 구성원들 사이의 네트워크 양상을 보여줍니다.
+                  <br>붉은 색으로 표시되는 사람들은 해당 구성원이 공개 채널에서 이모지와 댓글을 통해 가장 활발하게 소통한 구성원 5명이며,
+                  <br>초록색으로 표시되는 사람들은 자신의 상위 다섯명에 해당 구성원을 포함하는 사람을 나타냅니다.
+                 </p>
+               </div>
+               <div class="graph-area" id="network_chart_frame">
+                 <!-- 예은님자리 -->
+               </div>
+                 <script src="./js/network_chart.js"></script>
+                 <script src="http://d3js.org/d3.v3.js"></script>
+                 <script>
+                    get_network_chart("body #network_chart_frame");
+                 </script>
+               </div>
+             </div>
+         </section>
+
    <section class="bg-white" id="learning">
      <div class="container">
         <div class="row">
@@ -693,47 +724,59 @@
               </p>
               <p>모두가 자유롭게 대화에 참여하고 사적인 대화를 나누지 않는 general과 qanda 채널을 선택하여 워드클라우드를 그렸습니다. 워드클라우드는 텍스트 분석 라이브러리로 KRwordRank를 이용하여 불용어 처리 후 가장 많이 사용된 단어들을 도출하여 채널을 가장 잘 대표하는 이미지로 시각화 하였습니다.
               </p>
+            <!-- 채널 방사형 그래프: 예은 -->
+            <script></script>
             </div>
-            <div class="graph-area">
+            <div class="graph-area" id="radar_chart_channel_total">
               <!-- 예은님자리 -->
             </div>
+            <script src="./js/radar_chart.js"></script>
+            <script src="./js/radar_data.js"></script>
+            <script>
+              get_chart("body #radar_chart_channel_total", data_channel_whole, 600, 600, 7, 700);
+            </script>
             <div style="margin-top: 70px">
               <span class="btn-s btn-light" >
-              <a href="#" style="margin: 20px">#general</a>
+                <a href="#" style="margin: 20px">#general</a>
               </span>
               <span class="btn-s btn-light" >
-              <a href="#" style="margin: 20px">#오늘뭐먹지</a>
+                <a href="#" style="margin: 20px">#오늘뭐먹지</a>
               </span>
               <span class="btn-s btn-light" >
-              <a href="#" style="margin: 20px">#qanda</a>
+                <a href="#" style="margin: 20px">#qanda</a>
               </span>
               <span class="btn-s btn-light" >
-              <a href="#" style="margin: 20px">#자소서</a>
+                <a href="#" style="margin: 20px">#자소서</a>
               </span>
               <span class="btn-s btn-light" >
-              <a href="#" style="margin: 20px">#random</a>
+                <a href="#" style="margin: 20px">#random</a>
               </span>
             </div>
             <div style="margin-top: 70px">
               <span class="btn-s btn-light" >
-              <a href="#" style="margin: 20px">#retrospect</a>
+                <a href="#" style="margin: 20px">#retrospect</a>
               </span>
               <span class="btn-s btn-light" >
-              <a href="#" style="margin: 20px">#실습</a>
+                <a href="#" style="margin: 20px">#실습</a>
               </span>
               <span class="btn-s btn-light" >
-              <a href="#" style="margin: 20px">#techskill</a>
+                <a href="#" style="margin: 20px">#techskill</a>
               </span>
               <span class="btn-s btn-light" >
-              <a href="#" style="margin: 20px">#career</a>
+                <a href="#" style="margin: 20px">#career</a>
               </span>
               <span class="btn-s btn-light" >
-              <a href="#" style="margin: 20px">#나는누구</a>
+                <a href="#" style="margin: 20px">#나는누구</a>
               </span>
-            </div>
+            <div style="margin-top: 70px">
+              <span class="btn-s btn-light" >
+                <a href="#" style="margin: 20px;">전체 보기</a>
+              </span>
             </div>
           </div>
         </div>
+      </div>
+    </div>
    </section>
 
    <section class="bg-white" id="line">
@@ -765,9 +808,12 @@
               <h5>슬랙 전체와 깃헙 전체의 24시간 별 작업량을 나타낸 방사형 그래프</h5>
               <hr class="my-4">
             </div>
-            <div class="graph-area">
+            <div class="graph-area" id="radar_chart_commits_vs">
               <!-- 예은님자리 -->
             </div>
+            <script>
+              get_chart("body #radar_chart_commits_vs", data_commits_vs, 600, 600, 3, 30);
+            </script>
             <div class="text-area">
               <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>

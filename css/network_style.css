@@ -1,0 +1,13 @@
+/* 원본 코드 출처: https://www.kaggle.com/triskelion/normalized-kaggle-distance
+적절히 수정해서 써먹은 사람:  Eunorek
+원본 코드와 마찬가지로 Apache 2.0 라이센스를 따릅니다 */
+
+.node { font: 400 14px; fill: #333; cursor:pointer;}
+.node:hover {fill: #000;}
+.link {stroke: steelblue; stroke-opacity:.4;fill: none; pointer-events: none;}
+.node:hover,.node--source,.node--target { font-weight: 700;}
+.node--source { fill: #2ca02c;}
+.node--target { fill: #d62728;}
+.link--source,.link--target { stroke-opacity: 1; stroke-width: 2px;}
+.link--source { stroke: #d62728;}
+.link--target { stroke: #2ca02c;}
