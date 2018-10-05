@@ -52,7 +52,6 @@
          background-color : #fff;
          margin:0 auto;
          overflow: hidden;
-         text-align: center;
         }
         #chart-take {
          width: 400px;
@@ -60,7 +59,6 @@
          background-color : #fff;
          margin:0 auto;
          overflow: hidden;
-         text-align: center;
         }
       </style>
 
@@ -278,7 +276,7 @@
                {"month": 45, "count": 231},
                {"month": 50, "count": 566},
                {"month": 55, "count": 1872},
-
+                
                {"month": 65, "count": 145},
                {"month": 70, "count": 158},
                {"month": 75, "count": 164},
@@ -289,7 +287,7 @@
                {"month": 100, "count": 476},
                {"month": 105, "count": 509},
                {"month": 105, "count": 1601},
-
+                
                {"month": 115, "count": 72},
                {"month": 120, "count": 74},
                {"month": 125, "count": 77},
@@ -660,23 +658,23 @@
                <div class="col-lg-12 text-center">
                  <h6>#COMMUNICATION</h6>
                  <h2 class="section-heading"><strong>Network Flow</strong></h2>
-                 <h5>슬랙에서의 네트워크 양상</h5>
+                 <h5>슬랙 네트워크 그래프</h5>
                  <hr class="my-4">
                </div>
                <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
-                 <p>슬랙에서 얼마나 교류했는지 각 구성원들 사이의 네트워크 양상을 보여줍니다.
-                  <br>붉은 색으로 표시되는 사람들은 해당 구성원이 공개 채널에서 이모지와 댓글을 통해 가장 활발하게 소통한 구성원 5명이며,
-                  <br>초록색으로 표시되는 사람들은 자신의 상위 다섯명에 해당 구성원을 포함하는 사람을 나타냅니다.
+                 <p>슬랙에서 각 구성원들 사이의 네트워크 양상을 보여줍니다.
+                  <br>빨간색은 해당 구성원이 공개 채널에서 이모지와 댓글로 가장 활발하게 소통한 구성원 5명이며,
+                  <br>초록색은 해당 구성원이 상대방의 TOP 5에 포함될 때 그 상대방을 나타냅니다.
                  </p>
                </div>
                <div class="graph-area" id="network_chart_frame">
                  <!-- 예은님자리 -->
+               </div>
                  <script src="./js/network_chart.js"></script>
                  <script src="https://d3js.org/d3.v3.js"></script>
                  <script>
                     get_network_chart("body #network_chart_frame");
                  </script>
-               </div>
                </div>
              </div>
          </section>
@@ -687,13 +685,13 @@
             <div class="col-lg-12 text-center">
               <h6>#Learning</h6>
               <h2 class="section-heading"><strong>Channel Clock Graph</strong></h2>
-              <h5>채널별 활성화된 시간을 24시간별로 나타낸 시계 그래프</h5>
+              <h5>슬랙 채널별 메시지의 양 시계 그래프</h5>
               <hr class="my-4">
             </div>
             <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
-              <p>슬랙 채널 중 사생활 침해의 문제를 방지하기 위해, private 채널과 팀 프로젝트 관련 소규모 채널을 제외한 슬랙 채널 10개의 활성 시간대를 알아봅니다.
+              <p>슬랙 채널 10개에서 구성원들의 활동 시간대를 메시지의 양으로 알아봅니다.
               </p>
-              <p>모두가 자유롭게 대화에 참여하고 사적인 대화를 나누지 않는 general과 qanda 채널을 선택하여 워드클라우드를 그렸습니다. 워드클라우드는 텍스트 분석 라이브러리로 KRwordRank를 이용하여 불용어 처리 후 가장 많이 사용된 단어들을 도출하여 채널을 가장 잘 대표하는 이미지로 시각화 하였습니다.
+              <p>'general', 'qanda', '오늘뭐먹지' 세가지 채널 워드클라우드를 그립니다. 워드클라우드는 불용어를 처리하고, KRwordRank를 이용하여 가장 많이 등장한 단어를 추출하여 채널을 가장 잘 대표하는 이미지로 시각화 하였습니다.
               </p>
             <!-- 채널 방사형 그래프: 예은 -->
             <script></script>
@@ -763,7 +761,7 @@
               <img  src="img/graph_commit.png" style="width: 100%" >
             </div>
             <div class="text-area">
-              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <p> 1일 1커밋을 모토로 삼았던 데잇걸즈 교육생의 깃헙 커밋량을 살펴봅니다. 파란색은 데잇걸즈 교육생들의 총 커밋량, 빨간색은 데잇걸즈 repository 커밋량입니다.
               </p>
             </div>
           </div>
@@ -786,7 +784,7 @@
               get_chart("body #radar_chart_commits_vs", data_commits_vs, 600, 600, 3, 30);
             </script>
             <div class="text-area">
-              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <p> 데잇걸즈가 슬랙과 깃헙에서 어떤 시간대에 가장 많이 활동했을까요? 각 시간축의 그래프 끝에 마우스를 올려보면 전체 중 그 시간대의 활동 비율을 알 수 있습니다. 깃헙 커밋은 수업이 끝나는 오후 5시에 22.45%로 가장 높고, 슬랙 메시지는 오후 2시에 15.17%로 가장 활발한 것을 볼 수 있습니다.
               </p>
             </div>
           </div>
@@ -807,7 +805,7 @@
               <!-- 예은님자리 -->
             </div>
             <div class="text-area">
-              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <p> 데잇걸즈 2기의 대표적인 하드 스킬 중 6개(Python, Github, html, css, javascript, 통계)를 키워드로 하여, 슬랙 텍스트에서 함께 사용된 단어들을 추출하여 워드클라우드를 그려봅니다.
               </p>
             </div>
           </div>
@@ -824,15 +822,15 @@
             <div class="col-lg-12 text-center">
               <h6>#Fun</h6>
               <h2 class="section-heading"><strong>The Best Moment in Dataitgirls2</strong></h2>
-              <h5>명대사 목업 이미지(리액션 카운트 이모지+리플 top100목록에서 추출 - 허락도x, 결과물도x</h5>
+              <h5>명대사 TOP5</h5>
               <hr class="my-4">
             </div>
-            <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+            <div class="graph-area" id="unshake">
+              <img  src="img/best_moment.jpg" style="width: 100%" >
             </div>
-            <div id="unshake">
-              <img  src="img/best_moment.jpg" style="width: 100%; margin-top: 100px;" >
+            <div class="text-area">
+              <p> 이모지 리액션과 리플이 가장 많았던 슬랙의 명대사들을 뽑아보았습니다.
+              </p>
             </div>
           </div>
         </div>
