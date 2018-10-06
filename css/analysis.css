@@ -338,7 +338,7 @@ header.masthead p {
   animation: shake 0s;
 }
 
-img:hover {
+.shakable:hover {
 animation: shake 0.5s;
 animation-iteration-count: infinite;
 }
