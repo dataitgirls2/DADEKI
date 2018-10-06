@@ -21,8 +21,8 @@ function get_network_chart(target) {
 			.angle(function(d) { return d.x / 180 * Math.PI; });
 
 		var svg = d3.select(target).append("svg")
-			.attr("width", diameter)
-			.attr("height", diameter)
+			.attr("width", diameter+20)
+			.attr("height", diameter+20)
 		  .append("g")
 			.attr("transform", "translate(" + radius + "," + radius + ")");
 
