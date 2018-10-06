@@ -343,6 +343,9 @@ animation: shake 0.5s;
 animation-iteration-count: infinite;
 }
 
+.zoom_on_hover:hover {
+   transform: scale(2.0); 
+}
 
 @keyframes shake {
 0% { transform: translate(1px, 1px) rotate(0deg); }
