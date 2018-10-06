@@ -139,9 +139,10 @@
               </div>
           </div>
           <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
-            <p>슬랙은 이모지를 통해 텍스트에 반응을 보일 수 있는 Add Reaction 기능을 제공합니다.
-              이모지는 데잇걸즈 내에서 감정 표현을 통해 응답을 보내는 가장 주요한 매체입니다.
-              데잇걸즈 슬랙에서 3개월간 가장 많이 사용된 이모지 10개를 추출하여,
+            <p style="text-align:center;">슬랙은 이모지를 통해 텍스트에 반응을 보일 수 있는 Add Reaction 기능을 제공합니다.<br>
+              이모지는 데잇걸즈 내에서 메시지에 응답하는 데 가장 많이 사용되는 매체로,<br>
+              자신의 감정을 전달할 수 있게 해줍니다.<br>
+              데잇걸즈 슬랙에서 3개월간 가장 많이 사용된 이모지 10개를 추출하여<br>
               서로간에 어떤 감정을 가장 많이 주고받았는지 상징적으로 알아봅니다.</p>
           </div>
           <div class="emoji-array-1 center container" style="margin-top: 100px;">
@@ -211,9 +212,10 @@
               <hr class="my-4">
             </div>
             <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
-              <p>6월 말에서 9월 말까지 마일스톤과 중간 프로젝트,
-                그리고 최종 프로젝트를 준비하며 우리는 참 많은 감정 변화를 겪었습니다.
-                월별로 등장한 이모지 빈도 분석을 통해 기간별로 데잇걸즈 구성원들의 주된 감정 변화를 알아봅니다.</p>
+              <p style="text-align:center;">6월 말에서 9월 말까지 마일스톤과 중간 프로젝트,<br>
+                그리고 최종 프로젝트를 준비하며 우리는 참 많은 감정 변화를 겪었습니다.<br>
+                월별로 등장한 이모지 빈도 분석을 통해<br>
+                기간별로 데잇걸즈 구성원들의 주된 감정 변화를 알아봅시다.</p>
             </div>
         </div>
       </div>
@@ -524,7 +526,7 @@
                <hr class="my-4">
              </div>
              <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
-               <p>사람들에게 가장 많은 이모지를 준 데잇걸즈 구성원은 누구일까요?
+               <p style="text-align:center;">사람들에게 가장 많은 이모지를 준 데잇걸즈 구성원은 누구일까요?
                 <br>그리고 사람들에게 가장 많은 이모지를 준 데잇걸즈 구성원은 누구일까요?
                </p>
              </div>
@@ -664,10 +666,13 @@
                  <hr class="my-4">
                </div>
                <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
-                 <p>슬랙에서 각 구성원들 사이의 네트워크 양상을 보여줍니다.빨간색은 해당 구성원이 공개 채널에서 이모지와 댓글로 가장 활발하게 소통한 구성원 5명이며, 초록색은 해당 구성원이 상대방의 TOP 5에 포함될 때 그 상대방을 나타냅니다.
+                 <p style="text-align:center;">슬랙에서 각 구성원들 사이의 네트워크 양상을 보여줍니다.<br>
+                   구성원의 이름 위에 마우스를 올렸을 때 빨간색으로 나타나는 이름은<br>
+                   해당 구성원이 공개 채널에서 이모지와 댓글로 가장 활발하게 소통한 구성원 5명이며,<br>
+                   초록색은 해당 구성원이 자신의 TOP 5에 포함되어 있는 사람들입니다.
                  </p>
                </div>
-               <div class="graph-area" id="network_chart_frame">
+               <div class="graph-area" id="network_chart_frame"  style="width: 900px; height: 900px; padding:50px; margin: 0 150px;" >
                  <!-- 예은님자리 -->
                </div>
                  <script src="./js/network_chart.js"></script>
@@ -689,9 +694,14 @@
               <hr class="my-4">
             </div>
             <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
-              <p>슬랙 채널 10개에서 구성원들의 활동 시간대를 메시지의 양으로 알아봅니다.
+              <p style="text-align:center;">슬랙 채널 10개를 대상으로 시간 별로 오고 간 메시지의 수를 통해
+                <br>구성원들의 활동 시간대를 알아봅니다.
               </p>
-              <p>'general', 'qanda', '오늘뭐먹지' 세가지 채널 워드클라우드를 그립니다. 워드클라우드는 불용어를 처리하고, KRwordRank를 이용하여 가장 많이 등장한 단어를 추출하여 채널을 가장 잘 대표하는 이미지로 시각화 하였습니다.
+              <p style="text-align:center;">각 채널 버튼을 클릭하시면 가장 메시지 수가 많았던 채널인
+                <br>'general', 'qanda', '오늘뭐먹지'의 메시지 워드클라우드를 보실 수 있습니다.
+                <br>불용어 처리 후 KRwordRank를 이용하여 가장 많이 등장한 단어를 추출해
+                <br>채널을 가장 잘 대표하는 이미지로 시각화하였습니다.
+                <br>그 외의 채널 버튼을 클릭하시면 해당 채널의 시간 별 메시지 수만을 보실 수 있습니다.
               </p>
             </div>
 
@@ -715,10 +725,13 @@
                   };
                 };
 
+
               function ContentChange(target_src, description) {
                 purge();
                 var myNode = document.getElementById("radar_chart_channel");
-                const desc = document.createTextNode(description);
+                const desc = document.createElement('p')
+                  desc.setAttribute("style", "font-size:0.8em;");
+                  desc.innerText = description;
                 myNode.appendChild(desc);
                 const image_updated = document.createElement('img');
                 image_updated.setAttribute('src', target_src);
@@ -733,33 +746,33 @@
               <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/wordcloud_general.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
                 <a style="margin: 20px">#general</a>
               </button>
-              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/wordcloud_whattoeat.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')">
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/wordcloud_whattoeat.png', '점심 메뉴를 결정하고 함께 식사할 사람들을 모집하는 채널입니다')">
                 <a style="margin: 20px">#오늘뭐먹지</a>
               </button>
-              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/wordcloud_qanda.png', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/wordcloud_qanda.png', '궁금한 것이나 문제를 모두와 공유하여 함께 해결해나가는 채널입니다')" >
                 <a style="margin: 20px">#qanda</a>
               </button>
-              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_자소서.PNG', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_자소서.PNG', '원래 이름은 매력적인나사용제안서. 자소서 작성 수업을 진행하는 채널입니다')" >
                 <a style="margin: 20px">#자소서</a>
               </button>
-              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_random.PNG', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_random.PNG', '흥미로운 자료, 기사, 유머 컨텐츠를 공유하는 채널입니다')" >
                 <a style="margin: 20px">#random</a>
               </button>
             </div>
             <div style="margin-top: 70px">
-              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_retrospect.PNG', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_retrospect.PNG', '수업을 마친 후 하루를 되돌아보며 팀의 Fact, Feeling, Find를 공유하는 회고 채널입니다')" >
                 <a style="margin: 20px">#retrospect</a>
               </button>
-              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_실습.PNG', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_실습.PNG', '수업에서 실습한 결과물을 공유하며 서로 칭찬해주고 배워가는 채널입니다')" >
                 <a style="margin: 20px">#실습</a>
               </button>
-              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_techskill.PNG', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_techskill.PNG', '기술 관련 행사 소식, 기사, 자료, 노하우를 공유하는 채널입니다')" >
                 <a style="margin: 20px">#techskill</a>
               </button>
-              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_career.PNG', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_career.PNG', '취업, 커리어 전반과 관련된 정보를 공유하는 채널입니다')" >
                 <a style="margin: 20px">#career</a>
               </button>
-              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_나는누구.PNG', '공지나 다양한 주제의 대화를 나누는 용도로 개설된 채널입니다')" >
+              <button class="btn-s btn-light" type="button" onclick="ContentChange('./img/channels/radar_나는누구.PNG', '데잇걸즈 파티에서 구성원 어릴 적 사진 알아맞추기 게임을 할 때 사용된 채널입니다')" >
                 <a style="margin: 20px">#나는누구</a>
               </button>
           </div>
@@ -781,7 +794,9 @@
               <img  src="img/graph_commit.png" style="width: 100%" >
             </div>
             <div class="text-area">
-              <p> 1일 1커밋을 모토로 삼았던 데잇걸즈 교육생의 깃헙 커밋량을 살펴봅니다. 파란색은 데잇걸즈 교육생들의 총 커밋량, 빨간색은 데잇걸즈 repository 커밋량입니다.
+              <p> 1일 1커밋을 모토로 삼았던 데잇걸즈 교육생의 깃헙 커밋량을 살펴봅니다.
+                <br>파란색은 데잇걸즈 교육생들의 총 커밋량이며,
+                <br>붉은색은 교육생 모두가 기여한 데잇걸즈 2기 공식 repository들의 커밋량입니다.
               </p>
             </div>
           </div>
@@ -804,7 +819,10 @@
               get_chart("body #radar_chart_commits_vs", data_commits_vs, 600, 600, 3, 30);
             </script>
             <div class="text-area">
-              <p> 데잇걸즈가 슬랙과 깃헙에서 어떤 시간대에 가장 많이 활동했을까요? 각 시간축의 그래프 끝에 마우스를 올려보면 전체 중 그 시간대의 활동 비율을 알 수 있습니다. 깃헙 커밋은 수업이 끝나는 오후 5시에 22.45%로 가장 높고, 슬랙 메시지는 오후 2시에 15.17%로 가장 활발한 것을 볼 수 있습니다.
+              <p> 데잇걸즈가 슬랙과 깃헙에서 어떤 시간대에 많이 활동했을까요?
+                <br>각 시간축의 그래프 끝에 마우스를 올려보면 전체 중 그 시간대의 활동 비율을 알 수 있습니다.
+                <br>깃헙 커밋은 수업이 끝나는 오후 5시에 22.45%로 가장 높고,
+                <br>슬랙 메시지는 오후 2시에 15.17%로 가장 활발한 것을 볼 수 있습니다.
               </p>
             </div>
           </div>
@@ -822,7 +840,10 @@
               <hr class="my-4">
             </div>
              <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
-              <p>데잇걸즈 2기의 대표적인 하드 스킬 중 6개(Python, Github, html, css, javascript, 통계)를 키워드로 하여, 슬랙 텍스트에서 함께 사용된 단어들을 추출하여 워드클라우드를 그려봅니다.
+              <p style="text-align:center;">데잇걸즈 2기의 대표적인 하드 스킬 6개
+                <br>(Python, Github, html, css, javascript, 통계)를 키워드로
+                <br>슬랙 텍스트에서 각 키워드와 빈번히 함께 출현한 단어들을 추출하여
+                <br>워드클라우드를 그려봅니다.
               </p>
              </div>
               <div style="margin-top: 70px; paddingInner:50px; margin:50px auto;">
@@ -852,8 +873,8 @@
               <hr class="my-4">
             </div>
              <div class="container" style="width: 800px; margin-top: 30px; word-break:keep-all;">
-              <p>데잇걸즈 2기 슬랙에서의 최고의 순간은 언제였을까요?<br />
-                 이모지 반응량 순으로 Top 100 순간을 뽑은 뒤, 개인정보 유출의 소지가 있는 데이터를 전처리한 후 Top 5 결과를 뽑아보았습니다.
+              <p style="text-align:center;">데잇걸즈 2기 슬랙에서 최고의 순간은 언제였을까요?<br />
+                 이모지와 댓글 순으로 Top 100 메시지를 뽑아 개인정보 유출의 소지가 있는 데이터를 전처리한 후 Top 5 결과를 뽑아보았습니다.
               </p>
             </div>
             <div>
